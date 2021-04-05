@@ -1,6 +1,6 @@
 <template>
 <div class="bulletin_board">
-    <a href="/add"><button>Create an announcement/event for the bulletin board</button></a>
+    <a href="/add"><button>Create an announcement/event</button></a>
     <div v-for="event in events" :key="event.date">
         <div class="announcement" :id="event._id">
             <h3>{{event.title}}</h3>
