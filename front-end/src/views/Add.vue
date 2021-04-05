@@ -1,21 +1,21 @@
 <template>
 <div class="add">
     <h3>Add a new announcement/event</h3>
-    <form id="newEventForm">
+    <form id="newEventForm" v-on:submit.prevent="add()">
         <div class="row">
-            <label for="title">Title: <input v-model="title" type="text" name="title" class="pure-input-rounded"></label>
+            <label for="title">Title: <input required v-model="title" type="text" name="title" class="pure-input-rounded"></label>
         </div>
         <div class="row">
-            <label for="description">Announcement/Event Description: <input v-model="description" type="text" name="description"></label>
+            <label for="description">Announcement/Event Description: <input required v-model="description" type="text" name="description"></label>
         </div>
         <div class="row">
-            <label for="location">Where will this take place? <input v-model="location" type="text" name="location"></label>
+            <label for="location">Where will this take place? <input required v-model="location" type="text" name="location"></label>
         </div>
         <div class="row">
-            <label for="date">When will this take place? <input v-model="date" type="date" name="date"></label>
+            <label for="date">When will this take place? <input required v-model="date" type="date" name="date"></label>
         </div>
         <div class="row">
-            <button class="button-primary" v-on:click="add()" type="button">Add Annoucement/Event</button>
+            <button class="button-primary" type="submit">Add Annoucement/Event</button>
         </div>
     </form>
 </div>

@@ -7,8 +7,15 @@
             <p>What? - {{event.description}}</p>
             <p>When? - {{event.date}}</p>
             <p>Where? - {{event.location}}</p>
-            <p>How many people are attending? - {{event.attendee_amount}}</p>
-            <div>Which of your friends are attending? - <ul v-for="attendee in event.attendees" :key="attendee"><li>{{attendee}}</li> </ul> </div>
+            <p>How many people are attending? - <span v-if="event.attendees.length > 0">{{event.attendees.length}}</span><span v-else>Looks like nobody yet</span></p>
+            <div>Which of your friends are attending? - 
+                <span v-if="event.attendees.length > 0">
+                    <ul>
+                        <li v-for="attendee in event.attendees" :key="attendee">{{attendee}}</li>
+                    </ul>
+                </span>
+                <span v-else>So far, none of them</span>
+            </div>
             <div class="row">
                 <button type="button" v-on:click="edit(event)">Edit</button>
                 <button v-on:click="remove(event)" type='button'>Delete</button>
@@ -98,11 +105,3 @@ export default {
         }
 };
 </script>
-
-<style scoped>
-    .announcement {
-        border: 4px red dashed;
-        margin: 1em;
-        background-color: lightgrey;
-    }
-</style>
